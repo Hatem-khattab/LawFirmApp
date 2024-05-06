@@ -1,0 +1,24 @@
+﻿@model LawFirmApp.Models.FileModel
+
+<h1>Picture Upload</h1>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>File Upload Example</title>
+</head>
+<body>
+    <form asp-action="UploadButton_Click" method="post" id="form1" runat="server" enctype="multipart/form-data">
+        <div class="row">
+            <div class="row-cols-md-3">
+                <input type="file" id="fileinput"  asp-for="@Model.FileName" />
+            </div>
+            <div class="col-md-3">
+                <input type="submit" class="form-control" value="sumbit"/>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

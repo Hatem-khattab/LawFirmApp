@@ -1,0 +1,44 @@
+﻿@model LawFirmApp.Models.LawyerModel
+
+<html>
+    <head>
+         <title>Lawyers Page</title>
+    </head>
+
+  <body>
+    
+
+            <p>This page is to add a Lawyer or to view the current and previous Lawyers</p>
+ 
+    <form asp-action="SaveNewLawyer" enctype="multipart/form-data"  id="form1" runat="server">
+        <div class="row">
+            <div class="col-md-4">
+                Lawyer Name
+                <span class="text-danger">*</span>
+                    <input type="text" class="form-control" asp-for="LawyerName" />
+            </div>
+            <div class="col-md-4">
+                Lawyer Location
+                <span class="text-danger">*</span>
+                    <input type="text" class="form-control" asp-for="LawyerLocation"/>
+            </div>
+            <div class="col-md-4">
+                Lawyer Phone Number
+                <span class="text-danger">*</span>
+                    <input type="text" class="form-control" asp-for="LawyerPhoneNumber" />
+            </div>
+        </div>
+        <div class="row" style="padding-top:20px">
+             <div class="row-cols-md-3">
+                 Please Add Your Formal Id Photo("This Photo will be used in profile !! ")
+                <input class="form-control" type="file" id="customFile" asp-for="Lawyerpicture">
+             </div>          
+        </div>
+
+        <div class="col-md-6" style="padding-top:20px">
+            <input type="submit" class="btn btn-primary" value="Submitt" />
+
+        </div>
+    </form>
+   </body>
+</html>

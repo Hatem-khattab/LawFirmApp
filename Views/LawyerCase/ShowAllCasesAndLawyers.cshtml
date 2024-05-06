@@ -1,0 +1,64 @@
+﻿
+@model List<LawFirmApp.Models.CaseModel>
+
+<html>
+    <head>
+        <title>Show Results Page</title>
+    </head>
+  <body>
+
+
+      @if (Model != null)
+    {
+        <table class="table table-striped" style="width:100%">
+
+           <thead>
+
+                <th>Case Id</th>
+                <th>Case Name</th>
+                <th>Case Fire Date</th>
+                <th>Case Information</th>
+                <th>Case Lawyer</th>
+                <th>Lawyer Picture</th>
+                <th>Action</th>
+
+           </thead>
+
+            <tbody>
+                @foreach (LawFirmApp.Models.CaseModel item in Model)
+                {
+                    <tr>
+
+                        <td>@item.CaseId</td>
+                        <td>@item.CaseName</td>
+                        <td>@item.CaseFireDate</td>
+                        <td>@item.CaseInformation</td>
+                        <td>@item.LawyerName</td>
+                        <td>
+                            <img src="~/Lawyers/@item.LawyerPicture" width="100"/>
+                        
+                        </td>
+@*                         <td>
+                            <a asp-controller="UserInterface" asp-action="UpdateUser" asp-route-ID="@item.CaseId"> <i class="fas fa-edit">Update - </i></a>
+                            <a asp-controller="UserInterface" asp-action="DeleteUser" asp-route-ID="@item.CaseId"> <i class="fas fa-trash">delete</i></a>
+                        </td>
+ *@
+                    </tr>
+
+                }
+
+            </tbody>
+
+
+
+
+        </table>
+    }
+    else
+    {
+        <p>No Data Is Available</p>
+    }
+
+  </body>
+    
+</html>

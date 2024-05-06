@@ -1,0 +1,80 @@
+﻿
+@model LawFirmApp.Models.CaseModel
+
+
+<html>
+    <head>
+        <title>Case Page</title>
+</head>
+
+        <body>
+    <form asp-action="SaveCase" method="post">
+            <p>This page is to add a case or to view the current and previous cases</p>
+
+            
+            <div class="row">
+
+                <div class="col-md-4">
+                        Case Name
+                        <span class="text-danger">*</span>
+                        <input type="text" class="form-control" asp-for="CaseName"/>
+                </div>
+
+                <div class="col-md-4">
+                    Case Fire Date
+                    <span class="text-danger">*</span>
+                    <input type="date" class="form-control" asp-for="CaseFireDate" />
+                </div>
+
+                <div class="col-md-4">
+                     Case Information
+                    <span class="text-danger">*</span>
+                    <input type="text" class="form-control" asp-for="CaseInformation" />
+                </div>
+    
+            </div>
+            <div class="row" style="padding-top=20px">
+            <div class="col-md-4">
+                <h1>File Upload Status</h1>
+
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div>@ViewBag.Message</div>
+                }
+                  Upload another file
+            </div>    
+            
+            </div>
+            <div class="row" style="padding-top:20px">
+                <div class="col-md-6">
+                    <label>Choose a Lawyer for the case: Or <a href="SaveLawyer">Add New lawyer</a></label>
+                    @if (ViewBag.Lawyers != null && ViewBag.Lawyers.Count > 0)
+                    {
+                        <select class="form-control" asp-for="CaseLawyer">
+                            <option value="">Select</option>
+                            @foreach (var lawyer in ViewBag.Lawyers)
+                            {
+                                <option value="@lawyer.LawyerId">@lawyer.LawyerName</option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        <p>No Lawyers data available.</p>
+                    }
+                </div>
+                <div class="col-md-6">
+
+
+                </div>
+            <div class="col-md-6" style="padding-top:20px">
+                <input type="submit" class="btn btn-primary" value="Submitt" />
+
+            </div>
+            </div>
+
+
+
+            </form>
+        </body>
+</html>
